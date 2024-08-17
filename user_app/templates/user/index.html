@@ -1,0 +1,12 @@
+{% extends 'user/base.html' %}
+
+{% block nav %}
+    <button type="button" class="btn btn-outline-light text-capitalize me-2">{{ request.user }}</button>
+    <a href="{% url 'user_logout' %}">
+        <button type="button" class="btn btn-warning">Logout</button>
+    </a>
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center text-uppercase fw-bold mt-3"> Welcome {{ request.user }}</h1>
+{% endblock %}
