@@ -1,0 +1,17 @@
+{% extends 'custom_admin/base.html' %}
+
+{% block admin %}
+    <li><a href="{% url 'admin_home' %}" class="nav-link px-2 text-white fw-bold text-uppercase">Admin Dashboard</a></li>
+    <li><a href="{% url 'user_index' %}" class="nav-link px-2 text-white fw-bold text-uppercase">View Site</a></li>
+{% endblock %}
+
+{% block nav %}
+    <button type="button" class="btn btn-outline-light text-capitalize me-2">{{ request.user }}</button>
+    <a href="{% url 'admin_logout' %}">
+        <button type="button" class="btn btn-warning">Logout</button>
+    </a>
+{% endblock %}
+
+{% block body %}
+    <h1 class="text-center text-uppercase fw-bold mt-3"> Welcome {{ request.user }}</h1>
+{% endblock %}
