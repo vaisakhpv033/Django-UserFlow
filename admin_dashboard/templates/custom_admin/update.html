@@ -1,0 +1,58 @@
+{% extends 'custom_admin/base.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <h1 class="text-center">Update Details</h1>
+    <form action='' method='POST'>
+        {% csrf_token %}
+        <div class="container mt-4">
+            <div class="row mb-3">
+                <label for="id_username" class="col-sm-2 col-form-label fw-bold text-center text-capitalize">username</label>
+                <div class="col-sm-5">
+                    {{ form.username }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="id_email" class="col-sm-2 col-form-label fw-bold text-center text-capitalize">Email</label>
+                <div class="col-sm-5">
+                    {{ form.email }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="id_first_name" class="col-sm-2 col-form-label fw-bold text-center text-capitalize">First name</label>
+                <div class="col-sm-5">
+                    {{ form.first_name }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label for="id_last_name" class="col-sm-2 col-form-label fw-bold text-center text-capitalize">Last Name</label>
+                <div class="col-sm-5">
+                    {{ form.last_name }}
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="d-flex justify-content-start col-sm-6">
+                    <button type="submit" data-mdb-button-init
+                        data-mdb-ripple-init class="btn btn-success btn-block btn-lg gradient-custom-4 text-body w-50 ms-5">Update</button>
+                </div>
+            </div>
+
+        </div>
+    </form>
+        {% if form.errors %}
+            <div class="alert alert-danger">
+                <ul>
+                    {% for field, errors in form.errors.items %}
+                        {% for error in errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+</div>
+{% endblock %}
