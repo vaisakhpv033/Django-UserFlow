@@ -25,7 +25,16 @@ def admin_home(request):
 
 
 
+@user_passes_test(lambda user: user.is_superuser, login_url='admin_login')
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def admin_user_model(request):
+    users = User.objects.all().order_by('date_joined')
+    return render(request, 'custom_admin/user_model.html', {'users': users})
+
+
+
 # Admin Login View
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def admin_login(request):
     if request.user.is_authenticated:
         if request.user.is_superuser:

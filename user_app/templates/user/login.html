@@ -10,6 +10,11 @@
     <main class="row justify-content-center mt-5">
         <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
             <div class="container-md shadow rounded-3 py-4 mt-5">
+                {% if success %}
+                <div class="alert alert-success text-center w-50 my-0 mx-auto" role="alert">
+                    {{ success }}
+                </div>
+                {% endif %}
                 <form class="d-flex flex-column row-gap-3 p-4" action='' method='POST'>
                     {% csrf_token %}
                     <h1 class="h3 mb-3 fw-bold text-center mt-3">Log In To Your Account</h1>

@@ -1,0 +1,44 @@
+{% extends 'custom_admin/base.html' %}
+
+{% block admin %}
+    <li><a href="{% url 'admin_home' %}" class="nav-link px-2 text-white fw-bold text-uppercase">Admin Dashboard</a></li>
+{% endblock %}
+
+{% block nav %}
+    <button type="button" class="btn btn-outline-light text-capitalize me-2">{{ request.user }}</button>
+{% endblock %}
+
+
+{% block body %}
+    <div class="container-md mt-3">
+        <h2 class="text-center text-capitalize fw-bold">User Table</h2>
+        <table class="table table-hover">
+            <thead>
+                
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Is Admin</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <th scope="row">{{ user.id }}</th>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.first_name }}</td>
+                        <td>{{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.is_superuser }}</td>
+                        <td><a href={% url 'admin_user_details' user.id %}><span class="badge text-bg-primary rounded-pill">Details</span></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+{% endblock %}

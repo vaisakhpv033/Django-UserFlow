@@ -19,6 +19,7 @@
             <div class="col-12 col-md-10 col-lg-8 col-xl-6">
                 <h4 class="text-uppercase fw-bold px-2 mt-3">Users List
                     <a href="{% url 'admin_create_user' %}"><button type="button" class="btn btn-warning">Create User</button></a>
+                    <a href="{% url 'admin_user_model' %}"><button type="button" class="btn btn-warning">User Table</button></a>
                 </h4>
                     <form action='' method='POST'>
                         {% csrf_token %}
