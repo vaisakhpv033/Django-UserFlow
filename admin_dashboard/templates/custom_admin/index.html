@@ -24,7 +24,7 @@
                     <form action='' method='POST'>
                         {% csrf_token %}
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="{{ data }}" name="data" aria-label="Recipient's username" aria-describedby="button-addon2">
+                            <input type="text" class="form-control" placeholder="{{ data|default:"username" }}" name="data" aria-label="Recipient's username" aria-describedby="button-addon2">
                             <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Search</button>
                         </div>
                     </form>
